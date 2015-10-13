@@ -14,3 +14,10 @@ Or you can use install [vagrant](https://www.vagrantup.com/downloads.html) and s
 cd dev
 vagrant up
 ```
+### Step 2 - Import data into MongoDB
+
+To import test data into MongoDB installed in previous step, in project root use command prompt in following fashion:
+```
+cd dev
+./import_data.bat
+```
