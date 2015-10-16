@@ -16,29 +16,35 @@ namespace Catalog.Api.Controllers
 
         // GET: api/books
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<string> Get()
         {
-            return new string[] { "book 1", "book 2", "book 3" };
+            var collection = _database.GetCollection<BsonDocument>("books");
+            var filter = Builders<BsonDocument>.Filter.Not(Builders<BsonDocument>.Filter.Eq("BookTitle", ""));
+
+            var result = await collection.Find(filter).Limit(50).ToListAsync();
+            return result.ToJson();                
         }
 
         // GET api/books/dickens
         [HttpGet("{term}")]
-        public IEnumerable<string> Get(string term)
+        public async Task<string> Get(string term)
         {
-            return new string[] { "book 1", "book 2", "book 3" };
+            var collection = _database.GetCollection<BsonDocument>("books");
+            var filter = Builders<BsonDocument>.Filter.Text(term);
+
+            var result = await collection.Find(filter).Limit(50).ToListAsync();
+            return result.ToJson();                
         }
 
         // GET api/books/isbn/4234235
         [HttpGet("isbn/{isbn}")]
         public async Task<string> GetByIsbn(string isbn)
         {
-            Console.WriteLine($"Got ISBN {isbn}.");
-            
             var collection = _database.GetCollection<BsonDocument>("books");
             var filter = Builders<BsonDocument>.Filter.Eq("ISBN", isbn);
 
             var result = await collection.Find(filter).ToListAsync();
-            return result.SingleOrDefault().ToString();                
+            return result.SingleOrDefault().ToJson();                
         }
     }
 }
