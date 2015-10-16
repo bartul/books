@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Books</title>
+
+        <environment names="Development">
+            <link rel="stylesheet" href="~/css/site.css" />
+        </environment>
+        <environment names="Staging,Production">
+            <link rel="stylesheet" href="~/css/site.css" asp-file-version="true" />
+        </environment>
+    </head>
+    <body>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2015 - Books</p>
+            </footer>
+        </div>
+
+        <environment names="Development">
+            <script src="~/js/site.js"></script>
+        </environment>
+        <environment names="Staging,Production">
+            <script src="~/js/site.js" asp-file-version="true"></script>
+        </environment>
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
