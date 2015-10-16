@@ -1,19 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Mvc;
-using MongoDB.Bson;
-using MongoDB.Driver;
-
 namespace Catalog.Api.Controllers
 {
-    
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNet.Mvc;
+    using MongoDB.Bson;
+    using MongoDB.Driver;
+
     [Route("api/[controller]")]
     public class BooksController : Controller
     {
-        private static IMongoDatabase _database = (new MongoClient()).GetDatabase("catalog"); 
-
+        public BooksController(IMongoDatabase database) {
+            _database = database;
+        }
+        
+        private IMongoDatabase _database; 
+         
         // GET: api/books
         [HttpGet]
         public async Task<string> Get()
