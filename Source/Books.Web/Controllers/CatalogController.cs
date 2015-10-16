@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
-using RestSharp;
-using RestSharp.Authenticators;
 using System.Net.Http;
 using Newtonsoft.Json;
 
@@ -18,12 +16,11 @@ namespace Books.Web.Controllers
             
             var c = new HttpClient();
             c.BaseAddress = new Uri("http://localhost:5000");
-            var d = await c.GetStringAsync("api/books/isbn/0521413230");
-            //  JsonConvert.DeserializeObject<List<BookSearchItem>>(d);
+            var d = await c.GetStringAsync("api/books");
             
+            var data = JsonConvert.DeserializeObject<List<BookSearchItem>>(d);
             
-            Console.WriteLine(d);
-            return View();
+            return View(data);
         }
         
         public class BookSearchItem {
