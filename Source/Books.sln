@@ -7,6 +7,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Catalog.Api", "Catalog.Api\
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Books.Web", "Books.Web\Books.Web.xproj", "{AA27B0E8-0398-4D3D-AF65-9E96406797FA}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Books.Database", "Books.Database\Books.Database.sqlproj", "{98CE01C1-EDCE-41F8-AB47-A6E222C6F37F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{AA27B0E8-0398-4D3D-AF65-9E96406797FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA27B0E8-0398-4D3D-AF65-9E96406797FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA27B0E8-0398-4D3D-AF65-9E96406797FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98CE01C1-EDCE-41F8-AB47-A6E222C6F37F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98CE01C1-EDCE-41F8-AB47-A6E222C6F37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98CE01C1-EDCE-41F8-AB47-A6E222C6F37F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{98CE01C1-EDCE-41F8-AB47-A6E222C6F37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98CE01C1-EDCE-41F8-AB47-A6E222C6F37F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98CE01C1-EDCE-41F8-AB47-A6E222C6F37F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

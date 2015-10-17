@@ -16,7 +16,8 @@
     "Microsoft.Framework.Logging.Debug" : "1.0.0-beta7",
     "Microsoft.Framework.Logging.Console": "1.0.0-beta7",
     "System.Net.Http": "4.0.1-beta-23409",
-    "Newtonsoft.Json": "7.0.1"
+    "Newtonsoft.Json": "7.0.1",
+    "Dapper": "1.42.0"
   },
 
   "commands": {
