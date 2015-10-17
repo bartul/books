@@ -15,14 +15,13 @@
     "Microsoft.Framework.Logging": "1.0.0-beta7",
     "Microsoft.Framework.Logging.Debug" : "1.0.0-beta7",
     "Microsoft.Framework.Logging.Console": "1.0.0-beta7",
-    "RestSharp": "105.2.3",
     "System.Net.Http": "4.0.1-beta-23409",
     "Newtonsoft.Json": "7.0.1"
   },
 
   "commands": {
     "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini",
-    "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --config hosting.ini"
+    "web": "Microsoft.AspNet.Server.Kestrel"
   },
 
   "frameworks": {

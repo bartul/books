@@ -1,5 +1,5 @@
 {
   "AppSettings": {
-    "SiteTitle": "Books"
+    "CatalogApiBaseUrl":  "http://localhost:5000"
   }
 }
