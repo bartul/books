@@ -24,6 +24,10 @@ cd dev
 
 ### Step 3 - Install ASP.NET 5
 
+
+http://www.microsoft.com/en-us/download/details.aspx?id=49442
+
+
 To install ASP.NET 5 on your machine, please follow instruction depending on your OS.
 * [Install ASP.NET 5 on Windows](https://docs.asp.net/en/latest/getting-started/installing-on-windows.html)
 * [Install ASP.NET 5 on Linux](https://docs.asp.net/en/latest/getting-started/installing-on-linux.html)
@@ -45,3 +49,6 @@ Then to start web site, use following commands:
 cd Source\Books.Web
 dnx web
 ```
+
+Install Visual Studio Community 2015 from [here](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx), and ASP.NET 5 tools from [here](http://www.microsoft.com/en-us/download/details.aspx?id=49442).
+

@@ -1,4 +1,5 @@
 {
+  "webroot": "wwwroot",
   "version": "1.0.0-*",
 
   "dependencies": {
@@ -13,14 +14,14 @@
 
   "commands": {
     "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini",
-    "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --config hosting.ini"
+    "web": "Microsoft.AspNet.Server.Kestrel"
   },
 
   "frameworks": {
-    "dnx451": {} 
+    "dnx451": { }
   },
 
-  "exclude": [],
+  "exclude": [ ],
   "publishExclude": [
     "**.xproj",
     "**.user",

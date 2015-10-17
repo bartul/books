@@ -28,6 +28,7 @@ namespace Books.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton<IConfigurationRoot>(_ => this.Configuration);
         }
 
         // Configure is called after ConfigureServices is called.

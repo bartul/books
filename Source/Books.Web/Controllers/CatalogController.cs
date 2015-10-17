@@ -1,52 +1,56 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Mvc;
-using System.Net.Http;
-using Newtonsoft.Json;
 
 
 namespace Books.Web.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Microsoft.AspNet.Mvc;
+    using System.Net.Http;
+    using Newtonsoft.Json;
+    using Books.Web.Model;
+    using Microsoft.Framework.Configuration;
+
     public class CatalogController : Controller
     {
+        public CatalogController(IConfigurationRoot configuration)
+        {
+            _configuration = configuration;
+        }
+        private IConfigurationRoot _configuration;
+
         public async Task<IActionResult> Search()
         {
-            
-            var c = new HttpClient();
-            c.BaseAddress = new Uri("http://localhost:5000");
-            var d = await c.GetStringAsync("api/books");
-            
-            var data = JsonConvert.DeserializeObject<List<BookSearchItem>>(d);
-            
-            return View(data);
+            return View(await _GetApiData<List<BookSearchItem>>("api/books"));
         }
         public async Task<IActionResult> Book(string id)
         {
-            Console.WriteLine($"ISBN recieved -'{id}'");
-            
-            var c = new HttpClient();
-            c.BaseAddress = new Uri("http://localhost:5000");
-            var d = await c.GetStringAsync($"api/books/isbn/{id}");
+            return View(await _GetApiData<BookSearchItem>($"api/books/isbn/{id}"));
+        }
 
-            Console.WriteLine($"Data returned -'{d}'");
-            
-            var data = JsonConvert.DeserializeObject<BookSearchItem>(d);
-            
-            
-            return View(data);
+        private async Task<T> _GetApiData<T>(string requestUri)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(_configuration.GetSection("AppSettings").GetChildren().Single(i => i.Key == "AppSettings:CatalogApiBaseUrl").Value);
+            var json = await client.GetStringAsync(requestUri);
+
+            return JsonConvert.DeserializeObject<T>(json);
         }
-        
-        public class BookSearchItem {
-            public string ISBN { get; set; }
-            public string BookTitle { get; set; }
-            public string BookAuthor { get; set; }
-            public string YearOfPublication { get; set; }
-            public string Publisher { get; set; }
-            public string ImageUrlSmall { get; set; }
-            public string ImageUrlMedium { get; set; }
-            public string ImageUrlLarge { get; set; }
-        }
+
+    }
+}
+namespace Books.Web.Model
+{
+    public class BookSearchItem
+    {
+        public string ISBN { get; set; }
+        public string BookTitle { get; set; }
+        public string BookAuthor { get; set; }
+        public string YearOfPublication { get; set; }
+        public string Publisher { get; set; }
+        public string ImageUrlSmall { get; set; }
+        public string ImageUrlMedium { get; set; }
+        public string ImageUrlLarge { get; set; }
     }
 }

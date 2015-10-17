@@ -3,7 +3,6 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/books",
       "environmentVariables": {
         "ASPNET_ENV": "Development"
       }
@@ -11,12 +10,12 @@
     "kestrel": {
       "commandName": "kestrel",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000/api/books"
+      "launchUrl": "http://localhost:5001/"
     },
     "web": {
       "commandName": "web",
       "launchBrowser": true,
-      "launchUrl": "http://http://localhost:5000/api/books",
+      "launchUrl": "http://localhost:5001/",
       "environmentVariables": {
         "ASPNET_ENV": "Development"
       }
