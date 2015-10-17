@@ -44,7 +44,6 @@ namespace Books.Web.Controllers
 
             return JsonConvert.DeserializeObject<T>(json);
         }
-
     }
 }
 namespace Books.Web.Model
