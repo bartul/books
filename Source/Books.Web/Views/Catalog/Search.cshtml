@@ -2,8 +2,14 @@
     ViewData["Title"] = "Catalog Search Page";
 }
 <h3>Catalog</h3>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <input type="text" name="searchTerm" value="@ViewBag.Term" />
+    <input type="submit" name="submin" value="Find" />
+}
 <table>
-@foreach(var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td><img src="@item.ImageUrlMedium" alt="@item.BookTitle"></td>
         <td><a href="@Url.Action("Book", new { id = item.ISBN })">@item.BookTitle</a></td>

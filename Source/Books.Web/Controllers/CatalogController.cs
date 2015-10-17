@@ -20,9 +20,16 @@ namespace Books.Web.Controllers
         }
         private IConfigurationRoot _configuration;
 
-        public async Task<IActionResult> Search()
+        public async Task<IActionResult> Search(string term)
         {
-            return View(await _GetApiData<List<BookSearchItem>>("api/books"));
+            if (string.IsNullOrEmpty(term)) return View(await _GetApiData<List<BookSearchItem>>("api/books"));
+            ViewBag.Term = term;
+            return View(await _GetApiData<List<BookSearchItem>>($"api/books/{term}"));
+        }
+        [HttpPost, ActionName("Search")]
+        public IActionResult DoSearch(string searchTerm)
+        {
+            return RedirectToAction("Search", new { term = searchTerm });
         }
         public async Task<IActionResult> Book(string id)
         {
