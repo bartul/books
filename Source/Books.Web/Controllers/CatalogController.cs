@@ -22,6 +22,21 @@ namespace Books.Web.Controllers
             
             return View(data);
         }
+        public async Task<IActionResult> Book(string id)
+        {
+            Console.WriteLine($"ISBN recieved -'{id}'");
+            
+            var c = new HttpClient();
+            c.BaseAddress = new Uri("http://localhost:5000");
+            var d = await c.GetStringAsync($"api/books/isbn/{id}");
+
+            Console.WriteLine($"Data returned -'{d}'");
+            
+            var data = JsonConvert.DeserializeObject<BookSearchItem>(d);
+            
+            
+            return View(data);
+        }
         
         public class BookSearchItem {
             public string ISBN { get; set; }

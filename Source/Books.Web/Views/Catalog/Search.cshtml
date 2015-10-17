@@ -2,8 +2,11 @@
     ViewData["Title"] = "Catalog Search Page";
 }
 <h3>Catalog</h3>
-<ul>
+<table>
 @foreach(var item in Model) {
-    <li><img src="@item.ImageUrlSmall" alt="@item.BookTitle"> @item.BookTitle</li>        
+    <tr>
+        <td><img src="@item.ImageUrlMedium" alt="@item.BookTitle"></td>
+        <td><a href="@Url.Action("Book", new { id = item.ISBN })">@item.BookTitle</a></td>
+    </tr>
 }
 </ul>

@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "Book - " + Model.BookTitle;
+}
+<h3>@Model.BookTitle</h3>
+<img src="@Model.ImageUrlLarge" alt="@Model.BookTitle">
+<ul style="li label { color: red; }">
+    <li><label><strong>Author</strong></label> @Model.BookAuthor</li>
+    <li><label><strong>Publisher</strong></label> @Model.Publisher</li>
+    <li><label><strong>Year Of Publication</strong></label> @Model.YearOfPublication</li>
+</ul>
+

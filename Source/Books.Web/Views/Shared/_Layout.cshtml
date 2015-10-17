@@ -14,7 +14,11 @@
     </head>
     <body>
         <div class="container body-content">
-            @RenderBody()
+            <header>
+                <p><a href="@Url.Action("Search", "Catalog")">Catalog</a></p>
+            </header>
+            
+            @RenderBody() 
             <hr />
             <footer>
                 <p>&copy; 2015 - Books</p>
